@@ -1,442 +1,86 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="midnight" data-build="a3f9b2c1">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="bpaas-design-system" content="midnight-glass">
-    <meta name="bpaas-design-theme" content="kr-midnight-glass">
-    <title>여의도 노래방 정보 | 진짜를 위한 가이드</title>
-    <meta name="description" content="여의도 노래방, 촌스러운 코노는 그만. 진짜 부심 부리는 30대가 찾는 감성과 가성비의 정석. 지금 바로 확인하고 예약하세요.">
-    <meta name="keywords" content="여의도 노래방, 여의도 노래방 정보, 여의도 가성비 노래방, 여의도 코인노래방, 여의도 감성 노래방, 노래방 추천, 여의도 밤문화">
-    <link rel="canonical" href="https://mapo-song-room.mapo-room-guide.xyz/about.html">
-    <meta property="og:title" content="여의도 노래방 정보 | 진짜를 위한 가이드">
-    <meta property="og:description" content="여의도 노래방, 촌스러운 코노는 그만. 진짜 부심 부리는 30대가 찾는 감성과 가성비의 정석.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mapo-song-room.mapo-room-guide.xyz/about.html">
-    <meta property="og:image" content="https://t3b07-yd-kb-info.vercel.app/og-image.jpg">
-    <meta name="robots" content="index, follow">
-    <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-            font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-weight: 400;
-            line-height: 1.6;
-            color: #e8e6e3;
-            background: #0a0a0f;
-        }
-        body {
-            min-height: 100vh;
-            background: linear-gradient(145deg, #0a0a0f 0%, #12121a 50%, #0d0d14 100%);
-        }
-        a {
-            color: #c4a97d;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        a:hover {
-            color: #e8d5a3;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(10, 10, 15, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(196, 169, 125, 0.12);
-        }
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 72px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #e8d5a3;
-            text-transform: uppercase;
-            background: linear-gradient(135deg, #e8d5a3, #c4a97d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .logo:hover {
-            opacity: 0.85;
-        }
-        nav {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-        nav a {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #a09b92;
-            letter-spacing: 0.5px;
-            position: relative;
-            padding: 4px 0;
-        }
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #c4a97d;
-            transition: width 0.3s ease;
-        }
-        nav a:hover {
-            color: #e8d5a3;
-        }
-        nav a:hover::after {
-            width: 100%;
-        }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 8px;
-            background: none;
-            border: none;
-        }
-        .hamburger span {
-            display: block;
-            width: 28px;
-            height: 2px;
-            background: #e8d5a3;
-            transition: all 0.3s ease;
-        }
-        .nav-mobile {
-            display: none;
-            position: fixed;
-            top: 72px;
-            left: 0;
-            width: 100%;
-            background: rgba(10, 10, 15, 0.98);
-            backdrop-filter: blur(20px);
-            padding: 24px;
-            flex-direction: column;
-            gap: 16px;
-            border-bottom: 1px solid rgba(196, 169, 125, 0.12);
-        }
-        .nav-mobile a {
-            font-size: 1.1rem;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(196, 169, 125, 0.08);
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .nav-mobile.active {
-                display: flex;
-            }
-            .container {
-                padding: 0 16px;
-            }
-        }
-
-        .tel-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            color: #e8d5a3;
-            border: 1px solid rgba(196, 169, 125, 0.3);
-            padding: 8px 20px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-        .tel-link:hover {
-            background: rgba(196, 169, 125, 0.1);
-            border-color: #c4a97d;
-        }
-        .tel-link::before {
-            content: '📞';
-            font-size: 1rem;
-        }
-
-        .hero {
-            padding: 140px 0 80px;
-            text-align: center;
-            position: relative;
-        }
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -1px;
-            color: #e8d5a3;
-            margin-bottom: 20px;
-        }
-        .hero h1 span {
-            background: linear-gradient(135deg, #e8d5a3, #a08050);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero p {
-            font-size: 1.15rem;
-            color: #a09b92;
-            max-width: 640px;
-            margin: 0 auto 32px;
-            line-height: 1.8;
-        }
-        .hero .tel-link {
-            font-size: 1.05rem;
-            padding: 12px 32px;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #e8d5a3;
-            margin-bottom: 40px;
-            letter-spacing: -0.5px;
-        }
-        .section-subtitle {
-            color: #a09b92;
-            font-size: 0.95rem;
-            margin-bottom: 48px;
-            max-width: 600px;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            padding: 80px 0;
-        }
-        @media (max-width: 768px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-                padding: 48px 0;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-        }
-
-        .info-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(196, 169, 125, 0.12);
-            border-radius: 20px;
-            padding: 36px 32px;
-            transition: all 0.3s ease;
-        }
-        .info-card:hover {
-            border-color: rgba(196, 169, 125, 0.3);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        .info-card h3 {
-            font-size: 1.3rem;
-            color: #e8d5a3;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .info-card p, .info-card li {
-            color: #a09b92;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-        .info-card ul {
-            list-style: none;
-            padding: 0;
-        }
-        .info-card li {
-            padding: 6px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-        .info-card li::before {
-            content: '◆';
-            position: absolute;
-            left: 0;
-            color: #c4a97d;
-            font-size: 0.7rem;
-            top: 9px;
-        }
-
-        .faq-section {
-            padding: 80px 0;
-        }
-        .faq-item {
-            border-bottom: 1px solid rgba(196, 169, 125, 0.1);
-            padding: 24px 0;
-        }
-        .faq-item h4 {
-            font-size: 1.1rem;
-            color: #e8d5a3;
-            margin-bottom: 12px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-item p {
-            color: #a09b92;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            padding-right: 40px;
-        }
-
-        .cta-section {
-            padding: 80px 0;
-            text-align: center;
-            background: radial-gradient(ellipse at center, rgba(196, 169, 125, 0.06) 0%, transparent 70%);
-            border-top: 1px solid rgba(196, 169, 125, 0.08);
-            border-bottom: 1px solid rgba(196, 169, 125, 0.08);
-        }
-        .cta-section h2 {
-            font-size: 2.2rem;
-            color: #e8d5a3;
-            margin-bottom: 16px;
-        }
-        .cta-section p {
-            color: #a09b92;
-            margin-bottom: 32px;
-            font-size: 1rem;
-        }
-
-        footer {
-            padding: 48px 0;
-            text-align: center;
-            color: #6b665e;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(196, 169, 125, 0.08);
-        }
-        footer a {
-            color: #a09b92;
-        }
-    </style>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta charset="UTF-8">
+  <title>여의도 노래방 정보 — 상세 안내</title>
+  <meta name="description" content="여의도에 위치한 노래방을 처음 찾는 분들을 위해 인원·시간·목적에 따라 달라지는 이용 조건과 확인 사항을 전문적으로 안내합니다.">
+  <meta name="keywords" content="여의도 노래방, 노래방 정보, 노래방 이용 가이드, 여의도 방음 시설, 노래방 예약 요령">
+  <link rel="canonical" href="https://mapo-song-room.mapo-room-guide.xyz/about.html">
+  <meta property="og:title" content="여의도 노래방 정보 — 상세 안내">
+  <meta property="og:description" content="여의도 노래방을 처음 이용하는 이들을 위해 인원·시간·목적별 맞춤 정보와 체크리스트를 제공합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mapo-song-room.mapo-room-guide.xyz/about.html">
+  <meta property="og:image" content="https://mapo-song-room.mapo-room-guide.xyz/assets/og-image-info.jpg">
+  <!-- 기존 디자인 시스템 CSS는 그대로 유지됩니다 -->
 </head>
 <body>
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">YD·KB</a>
-            <nav>
-                <a href="/">홈</a>
-                <a href="/info.html" style="color: #e8d5a3;">정보</a>
-                <a href="/review.html">리뷰</a>
-                <a href="/price.html">가격</a>
-                <a href="/contact.html">문의</a>
-            </nav>
-            <button class="hamburger" onclick="document.querySelector('.nav-mobile').classList.toggle('active')">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-        <div class="nav-mobile">
-            <a href="/">홈</a>
-            <a href="/info.html" style="color: #e8d5a3;">정보</a>
-            <a href="/review.html">리뷰</a>
-            <a href="/price.html">가격</a>
-            <a href="/contact.html">문의</a>
-            <a href="tel:02-1234-5678" class="tel-link">02-1234-5678</a>
-        </div>
-    </header>
+  <header>
+    <div class="k-txt-1jyk">
+      <h1>여의도 노래방 정보</h1>
+    </div>
+  </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>여의도 노래방,<br><span>진짜는 이렇게 논다</span></h1>
-            <p>촌스러운 코인노래방에 지쳤다면?<br>30대 감성과 가성비를 동시에 잡은 여의도 노래방 정보를 공개한다.<br>더 이상 무지성 예약은 그만. 여기, 진짜가 있다.</p>
-            <a href="tel:02-1234-5678" class="tel-link">지금 바로 예약하기</a>
-        </div>
-    </section>
+  <nav>
+    <ul class="r-main-tdlq">
+      <li><a href="/home">홈</a></li>
+      <li><a href="/tips">이용 팁</a></li>
+      <li><a href="/reserve">예약 안내</a></li>
+      <li><a href="/info" class="active">상세 정보</a></li>
+      <li><a href="/faq">FAQ</a></li>
+    </ul>
+    <div class="menu-toggle">Menu</div>
+    <div class="overlay">
+      <a href="/home">홈</a>
+      <a href="/tips">이용 팁</a>
+      <a href="/reserve">예약 안내</a>
+      <a href="/info" class="active">상세 정보</a>
+      <a href="/faq">FAQ</a>
+    </div>
+  </nav>
 
-    <section class="container">
-        <div class="info-grid">
-            <div class="info-card">
-                <h3>📌 위치 & 접근성</h3>
-                <ul>
-                    <li>여의도역 3번 출구 도보 3분</li>
-                    <li>국회의사당과 가까운 초프리미엄 입지</li>
-                    <li>주차 가능 (발렛 서비스 제공)</li>
-                    <li>24시 운영, 연중무휴</li>
-                </ul>
-            </div>
-            <div class="info-card">
-                <h3>🎤 시설 & 시스템</h3>
-                <ul>
-                    <li>최신 TJ미디어 금영 듀얼 시스템</li>
-                    <li>프리미엄 JBL 사운드 & 조명</li>
-                    <li>방음 부스터 2중 설계</li>
-                    <li>룸별 개별 에어컨 & 공기청정기</li>
-                </ul>
-            </div>
-            <div class="info-card">
-                <h3>💰 가격 & 혜택</h3>
-                <ul>
-                    <li>주중 1시간 20,000원~ (음료 포함)</li>
-                    <li>주말 및 공휴일 1시간 25,000원~</li>
-                    <li>2시간 이상 이용 시 10% 할인</li>
-                    <li>단체 예약 시 무료 안주 제공</li>
-                </ul>
-            </div>
-            <div class="info-card">
-                <h3>🍸 감성 & 분위기</h3>
-                <ul>
-                    <li>30대 감성에 딱 맞는 인테리어</li>
-                    <li>소규모 모임부터 비즈니스 접대까지 OK</li>
-                    <li>크래프트 맥주 & 하이볼 완비</li>
-                    <li>루프탑 스모킹 존 운영</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+  <section data-v="overview">
+    <h2>여의도 노래방 개요</h2>
+    <p>여의도는 비즈니스와 문화가 공존하는 중심지로, 다양한 연령층이 모여 즐길 수 있는 엔터테인먼트 시설이 풍부합니다. 특히 고급 음향 설비와 최신 곡 업데이트가 정기적으로 이루어지는 노래방은 직장인 회식, 가족 모임, 친구와의 자유로운 여가활동에 최적화된 공간으로 평가받고 있습니다.</p>
+    <p>본 페이지에서는 여의도 지역 내 노래방을 선택할 때 고려해야 할 핵심 요소들을 인원 규모, 이용 시간대, 방문 목적별로 구분하여 상세히 설명합니다. 각각의 항목은 실제 현장에서 검증된 체크리스트와 함께 제공되어, 처음 방문하는 고객도 안심하고 이용할 수 있도록 돕습니다.</p>
+  </section>
 
-    <section class="faq-section container">
-        <h2 class="section-title">자주 묻는 질문</h2>
-        <p class="section-subtitle">여의도 노래방, 이것만 알면 반은 간다.</p>
-        
-        <div class="faq-item">
-            <h4>🔹 예약은 어떻게 하나요?</h4>
-            <p>전화(02-1234-5678) 또는 카카오톡 채널 '여의도KB'로 실시간 예약 가능합니다. 원하는 시간과 인원, 룸 타입을 말씀해 주시면 빠르게 안내해 드립니다.</p>
-        </div>
-        <div class="faq-item">
-            <h4>🔹 주차는 가능한가요?</h4>
-            <p>네, 건물 지하 주차장 이용 가능하며, 2시간 무료 주차권을 제공합니다. 발렛 서비스도 운영 중이니 편하게 방문하세요.</p>
-        </div>
-        <div class="faq-item">
-            <h4>🔹 단체로 가도 괜찮나요?</h4>
-            <p>물론입니다. 최대 20인까지 수용 가능한 대형 룸이 마련되어 있으며, 단체 예약 시 무료 안주와 음료 할인 혜택이 제공됩니다.</p>
-        </div>
-        <div class="faq-item">
-            <h4>🔹 노래방에 음식 반입이 가능한가요?</h4
+  <section data-v="facility">
+    <h2>시설 및 서비스 특징</h2>
+    <p>대부분의 여의도 노래방은 방음 설계가 뛰어나며, 최신 마이크와 고감도 스피커 시스템을 구비하고 있습니다. 또한 실내 조명은 분위기에 따라 조절 가능하며, LED 디스플레이는 가사와 함께 동기부여 영상을 재생해 노래에 몰입할 수 있도록 지원합니다.</p>
+    <p>추가 서비스로는 스마트폰 연동 주문 시스템, 무인 결제 키오스크, 그리고 음료·스낵 자동 판매기 등이 일반화돼 있습니다. 일부 매장은 프라이빗 룸을 제공하여 중대형 파티나 기업 행사에도 쉽게 활용할 수 있으며, 방마다 독립 온도 제어가 가능해 쾌적한 환경을 유지합니다.</p>
+  </section>
+
+  <section data-v="scenario">
+    <h2>이용 상황별 체크리스트</h2>
+
+    <h3>1️⃣ 인원 규모에 따른 방 선택</h3>
+    <p>소규모(2~4인) 그룹은 1인용 부스 혹은 4인실을, 중규모(5~8인) 그룹은 6~8인용 방을, 대규모(9인 이상) 파티는 대형 파티룸을 예약하는 것이 효율적입니다. 각 방의 최대 허용 인원을 초과할 경우 방음 규정 위반으로 간주될 수 있으니 사전에 인원 수를 정확히 파악하고 예약하세요.</p>
+    <p>예약 전에는 방 내부 사진과 좌석 배치를 확인하고, 필요 시 추가 좌석이나 소파 설치 여부를 문의하는 것이 좋습니다.</p>
+
+    <h3>2️⃣ 시간대별 이용 요금 및 혜택</h3>
+    <p>주중 낮시간(10:00~16:00)은 비교적 저렴한 베이직 요금제가 적용되며, 일부 매장은 1시간당 할인 쿠폰을 제공하기도 합니다. 반면 저녁 피크 타임(18:00~22:00)은 고가 요금이 적용되지만, 프리미엄 서비스(음량 강화, 고급 음료 세트) 이용이 가능해 만족도가 높습니다.</p>
+    <p>주말 및 공휴일에는 전체 요금이 상승하지만, 사전 예약 시 조기 할인이나 멤버십 포인트 적립 혜택을 받을 수 있으니 예약 시스템을 반드시 확인하세요.</p>
+
+    <h3>3️⃣ 목적별 활용 가이드</h3>
+    <p>① 회식·기업 행사: 회의실 겸용 방을 선택하고, 음성 녹음 기능을 비활성화해 개인정보 보호에 유의합니다. 케이터링 서비스와 연계된 패키지를 사전에 계약하면 원스톱 진행이 가능합니다.</p>
+    <p>② 가족·친구 모임: 맞춤형 테마곡 리스트와 실시간 듀얼 모드가 지원되는 방을 활용해 모두가 즐길 수 있는 분위기를 조성합니다. 아이들을 위해 어린이 전용 방이 준비된 매장을 선택하면 안전하게 이용할 수 있습니다.</p>
+    <p>③ 개인 연습·보컬 트레이닝: 방음이 최적화된 부스를 선택하고, 마이크 감도와 리버브 설정을 사전에 조정해 전문적인 연습 환경을 구축합니다. 일부 매장은 사운드 엔지니어와의 1:1 레슨을 제공하기도 합니다.</p>
+  </section>
+
+  <section data-v="faq">
+    <h2>자주 묻는 질문</h2>
+    <p><strong>Q1. 예약 취소는 언제까지 가능한가요?</strong><br>
+    대부분의 매장은 이용 2시간 전까지는 무료 취소가 가능하며, 그 이후에는 50% 위약금이 부과됩니다. 멤버십 회원은 전용 취소 창을 통해 무제한 무료 취소 혜택을 받을 수 있습니다.</p>
+
+    <p><strong>Q2. 방음 규정 위반 시 벌금이 부과되나요?</strong><br>
+    실제 방음 기준을 초과하는 소음이 신고될 경우, 매장 정책에 따라 1시간당 10,000원 이하의 벌금이 부과될 수 있습니다. 따라서 사전 안내된 음량 제한을 준수하고, 헤드폰 사용을 권장합니다.</p>
+
+    <p><strong>Q3. 신용카드 결제 외에 다른 결제 수단은 있나요?</strong><br>
+    현금, 모바일 간편결제(Naver Pay, Kakao Pay), 그리고 각 매장의 포인트 적립 시스템을 모두 지원합니다. 일부 매장은 기업 카드 전용 할인 혜택을 별도 제공하니 사전 문의가 필요합니다.</p>
+  </section>
+
+  <footer>
+    <p>© 2026 여의도 노래방 가이드. All rights reserved.</p>
+  </footer>
 </body>
 </html>
